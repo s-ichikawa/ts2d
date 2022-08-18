@@ -6,6 +6,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	df "github.com/s-ichikawa/ts2d/internal/date_format"
 )
 
 const (
@@ -23,6 +25,11 @@ var (
 
 func SetCustomFormat(f string) {
 	customFormat = f
+}
+
+func SetCustomFormatInJavaDataPattern(f string) {
+	r := df.NewJavaSimpleDateConvertor(f)
+	customFormat = r.ToLayout()
 }
 
 func TimestampToDate(in string) string {

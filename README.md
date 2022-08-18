@@ -13,6 +13,12 @@ $ go install github.com/s-ichikawa/ts2d@latest
 ```
 $ echo 1660358443.2188597 | ts2d
 "2022-08-13 11:40:43.002188597 +0900 JST"
+
+$ echo 1660358443.2188597 | ts2d -f "2006-01-02T15:04:05-07:00"
+"2022-08-13T11:40:43+09:00"
+
+$ echo 1660358443.2188597 | ./ts2d -jf "yyyy/MM/dd 'at' hh:mm:ss a z"
+"2022/08/13 at 11:40:43 AM JST"
 ```
 
 example of kubectl logs
