@@ -23,7 +23,7 @@ var (
 	customFormat = ""
 )
 
-func SetCustomFormat(f string) {
+func SetCustomFormatInGoLayout(f string) {
 	customFormat = f
 }
 
