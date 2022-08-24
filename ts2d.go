@@ -10,16 +10,21 @@ import (
 	"github.com/s-ichikawa/ts2d/internal"
 )
 
-var customFormat string
+var customFormat, customGoDateFormat string
 
 func main() {
 	flag.StringVar(&customFormat, "format", "", "")
 	flag.StringVar(&customFormat, "f", "", "")
+	flag.StringVar(&customGoDateFormat, "go-format", "", "")
+	flag.StringVar(&customGoDateFormat, "gf", "", "")
 
 	flag.Parse()
 
+	// `customFormat`, i.e. Java date template is the top-class citizen.
 	if customFormat != "" {
-		internal.SetCustomFormat(customFormat)
+		internal.SetCustomFormatInJavaDataPattern(customFormat)
+	} else if customGoDateFormat != "" {
+		internal.SetCustomFormatInGoLayout(customGoDateFormat)
 	}
 
 	r := bufio.NewReader(os.Stdin)
